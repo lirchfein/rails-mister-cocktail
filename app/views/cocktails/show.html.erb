@@ -2,9 +2,10 @@
   <h1><%= @cocktail.name %></h1>
 
   <div class="image-div">
-    <%= cl_image_tag("wsx2vs8barv2ooxvp6k9.jpg",
-        width: 400, height: 300, crop: :fill) %>
+    <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
   </div>
+
+
 
 
 
