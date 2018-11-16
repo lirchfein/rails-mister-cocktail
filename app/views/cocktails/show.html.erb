@@ -1,6 +1,12 @@
 <div class="container">
   <h1><%= @cocktail.name %></h1>
-  <%#= image_tag (@cocktail.), class: "cocktail-hero" %>
+
+  <div class="image-div">
+    <%= cl_image_tag("wsx2vs8barv2ooxvp6k9.jpg",
+        width: 400, height: 300, crop: :fill) %>
+  </div>
+
+
 
 
   <% @cocktail.doses.each do |d| %>
