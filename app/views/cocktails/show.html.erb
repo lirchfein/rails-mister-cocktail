@@ -1,11 +1,12 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <%= image_tag (@cocktail.), class: "cocktail-hero" %>
 
 
-<% @cocktail.doses.each do |d| %>
-  <p><%= d.description %> | <%= d.ingredient.name %>  <%= link_to "Delete dose", dose_path(d), method: :delete, class: "btn btn-primary", data: {confirm: "Are you sure?" } %></p>
-<% end %>
+  <% @cocktail.doses.each do |d| %>
+    <p><%= d.description %> | <%= d.ingredient.name %>  <%= link_to "🗑️", dose_path(d), method: :delete, data: {confirm: "Are you sure?" } %></p>
+  <% end %>
 
 
-<%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-
-<%= link_to "Back home", cocktails_path, class: "btn btn-primary" %>
+  <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+</div>
