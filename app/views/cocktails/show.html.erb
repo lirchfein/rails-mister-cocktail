@@ -1,12 +1,5 @@
+<%= render "components/cocktail_banner" %>
 <div class="container">
-
-  <!-- delete button -->
-  <h1><%= @cocktail.name %><%= link_to "🗑️", cocktail_path(@cocktail), method: :delete, data: {confirm: "Are you sure?" } %></h1>
-
-  <!-- hero image for cocktail -->
-  <div class="image-div">
-    <% if @cocktail.photo.file.nil? %><%= cl_image_tag "wsx2vs8barv2ooxvp6k9.jpg", height: 300, width: 400, crop: :fill %><% else %><%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %><% end %>
-  </div>
 
   <!-- list doses -->
   <% @cocktail.doses.each do |d| %>
@@ -14,5 +7,5 @@
   <% end %>
 
   <!-- add doses button -->
-  <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+  <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-ingredient" %>
 </div>
