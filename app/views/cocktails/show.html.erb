@@ -1,11 +1,28 @@
 <%= render "components/cocktail_banner" %>
 <div class="container">
 
-  <!-- list doses -->
-  <% @cocktail.doses.each do |d| %>
-    <p><%= d.description %> | <%= d.ingredient.name %>  <%= link_to "🗑️", dose_path(d), method: :delete, data: {confirm: "Are you sure?" } %></p>
-  <% end %>
+  <div class="row margin-bottom">
+    <!-- list doses -->
+    <div class="col-sm-12 col-md-6">
+      <h2>Ingredients:</h2>
+      <% if @cocktail.doses.exists? %>
+        <% @cocktail.doses.each do |d| %>
+          <p><%= d.description %> | <%= d.ingredient.name %>  <%= link_to "🗑️", dose_path(d), method: :delete, data: {confirm: "Are you sure?" } %></p>
+        <% end %>
+      <% else %>
+        <p><%= "There are no ingredients yet!" %></p>
+      <% end %>
+    </div>
 
-  <!-- add doses button -->
-  <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-ingredient" %>
+    <!-- add doses form -->
+    <div class="col-sm-12 col-md-6">
+      <h2>Add new ingredients:</h2>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description, label: "Amount" %>
+        <%= f.association :ingredient %>
+        <%= f.button :submit, "Add ingredient", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

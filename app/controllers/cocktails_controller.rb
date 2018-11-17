@@ -5,6 +5,7 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    @dose = Dose.new
     # @doses = Dose.select_all("SELECT * FROM doses WHERE cocktails_id = #{params[:id]}").to_hash
   end
 
