@@ -5,6 +5,9 @@
   background-position: center;
   color: white;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card a {
@@ -41,3 +44,15 @@
 .margin-around {
   margin: 20px 10px;
 }
+
+.new-cocktail-card img {
+  width: 70px;
+  height: 70px;
+  transition: 0.5s;
+  &:hover {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+

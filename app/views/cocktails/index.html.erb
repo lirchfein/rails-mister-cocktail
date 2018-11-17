@@ -2,6 +2,8 @@
 <div class="container">
 
   <div class="row">
+
+    <!-- list cocktails card -->
     <% @cocktails.each do |c| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card margin-around" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% if c.photo.file.nil? %><%= cl_image_path "wsx2vs8barv2ooxvp6k9.jpg" %><% else %><%= cl_image_path c.photo_url %><% end %>);">
@@ -12,7 +14,16 @@
       </div>
     <% end %>
 
+    <!-- add new cocktail card -->
+
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card margin-around new-cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(<%= cl_image_path "wsx2vs8barv2ooxvp6k9.jpg" %>);">
+
+          <%= link_to cl_image_tag("add"), new_cocktail_path, class: "plus-button" %>
+
+      </div>
+    </div>
+
   </div>
 
-  <%= link_to "Add cocktail", new_cocktail_path, class: "btn btn-primary margin-around" %>
 </div>
